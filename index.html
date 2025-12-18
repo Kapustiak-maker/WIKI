@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>NOCTRL Wiki</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="lang.js"></script>
+</head>
+<body>
+<div class="snowflakes" id="snowContainer"></div>
+
+<div class="container">
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>NOCTRL</h2>
+      <div class="snow-toggle">
+        <label class="switch">
+          <input type="checkbox" id="snowToggle" onchange="toggleSnow()" checked>
+          <span class="slider"></span>
+        </label>
+        <span data-ru="Снег" data-en="Snow"></span>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <button class="nav-btn active" onclick="loadPage('home')" data-ru="Главная" data-en="Home">Главная</button>
+      <button class="nav-btn" onclick="loadPage('rules')" data-ru="Правила" data-en="Rules">Правила</button>
+      <button class="nav-btn" onclick="loadPage('plugins')" data-ru="Плагины" data-en="Plugins">Плагины</button>
+      <button class="nav-btn" onclick="loadPage('commands')" data-ru="Команды" data-en="Commands">Команды</button>
+      <button class="nav-btn" onclick="loadPage('faq')" data-ru="FAQ" data-en="FAQ">FAQ</button>
+      <button class="nav-btn" onclick="loadPage('map')" data-ru="Карта" data-en="Map">Карта</button>
+      <button class="nav-btn" onclick="loadPage('team')" data-ru="Команда" data-en="Team">Команда</button>
+      <button class="nav-btn" onclick="loadPage('news')" data-ru="Новости" data-en="News">Новости</button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="https://discord.gg/R77RfU5ccH" target="_blank" class="discord-btn" data-ru="Discord" data-en="Discord">Discord</a>
+      
+      <div class="music-player">
+        <div class="music-toggle">
+          <button id="musicToggle" onclick="toggleMusicPanel()" class="music-btn" title="🎵">
+            🎵
+          </button>
+        </div>
+        <div id="musicPanel" class="music-panel" style="display: none;">
+          <div class="music-header">
+            <span data-ru="Музыка" data-en="Music">Музыка</span>
+          </div>
+          <audio id="audioPlayer" style="width: 100%;">
+            <source src="https://github.com/Kapustiak-maker/WIKI-RELATED/releases/download/music/music.1.mp3" type="audio/mpeg">
+          </audio>
+          <div class="music-controls">
+            <button onclick="toggleAudio()" id="playBtn" class="control-btn">▶️</button>
+            <button onclick="previousTrack()" class="control-btn">⏮️</button>
+            <button onclick="nextTrack()" class="control-btn">⏭️</button>
+          </div>
+          <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="30" onchange="setVolume(this.value)">
+          <div class="time-display">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+          </div>
+          <div class="track-selector">
+            <button onclick="switchTrack(0)" class="track-btn active" title="Track 1">1</button>
+            <button onclick="switchTrack(1)" class="track-btn" title="Track 2">2</button>
+            <button onclick="switchTrack(2)" class="track-btn" title="Track 3">3</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="top-header">
+      <div class="header-left">
+        <button class="back-btn" onclick="goBack()" style="display:none;" id="backBtn" data-ru="← Назад" data-en="← Back">← Назад</button>
+        <h1 id="pageTitle">NOCTRL — Ванильное Выживание</h1>
+      </div>
+      <div class="header-right">
+        <button onclick="setLang('ru')" class="lang-btn">RU</button>
+        <button onclick="setLang('en')" class="lang-btn">EN</button>
+      </div>
+    </header>
+
+    <div class="content" id="content">
+    </div>
+
+    <footer class="main-footer">
+      <p data-ru="NOCTRL © 2025 | Ванильный Survival сервер" data-en="NOCTRL © 2025 | Vanilla Survival Server">NOCTRL © 2025 | Ванильный Survival сервер</p>
+    </footer>
+  </main>
+</div>
+
+<script src="pages.js"></script>
+<script src="snow.js"></script>
+<script>
+  console.log('✅ Сайт загружен!');
+  console.log('📁 Папка:', document.location.pathname);
+</script>
+</body>
+</html>
